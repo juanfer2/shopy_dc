@@ -8,9 +8,9 @@ Previusly to setup the project it's necesary isntall
 
 Then next commands
 
-`
+```console
 make copy-config
-`
+```
 
 This command generate diferents files in `src/shared/infrastructure/persistence/postgres/config/database_development.yml` in which you must add your credentials postgrest
 
@@ -24,22 +24,22 @@ database: 'shopy_dc_dev'
 ```
 Now run next command for install go dependencies
 
-`
+```console
 go mod tidy
-`
+```
 
-`
+```console
 go install
-`
+```
 
 Then you can create a database
 
-`
+```console
 go run ./main.go db:create
-`
+```
 
 Finally run this command for fill database with data
 
-`
+```console
 go run ./main.go db:seed products
-`
+```
