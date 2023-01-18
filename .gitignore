@@ -1,0 +1,11 @@
+.env
+golang-clean.*
+golang-clean
+migrate.linux-amd64
+
+src/shared/infrastructure/clients/b2chat/config/*.yml
+!src/shared/infrastructure/clients/b2chat/config/b2chat_env.example.yml
+
+src/shared/infrastructure/persistence/postgres/config/*.yml
+!src/shared/infrastructure/persistence/postgres/config/database_env.yml
+
