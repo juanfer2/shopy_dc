@@ -7,6 +7,8 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
+	products_cmd "github.com/juanfer2/shopy_dc_golang/src/products/infrastructure/cmd"
 )
 
 var cfgFile string
@@ -45,5 +47,5 @@ func init() {
 	// when this action is called directly.
 	// .Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	rootCmd.AddCommand(serverCmd, serverGrpcCmd, buildCmd, migrateCmd, cleanBuildCmd, testCmd,
-		grpcCmd, createDatBaseCmd)
+		grpcCmd, createDatBaseCmd, products_cmd.PersonaSeedCmd)
 }

@@ -1,21 +1,45 @@
-# Ayenda Services
+# Product dd Services
+App for test works with products
 
-## Atomic
-When somethien it considered atomic or have this property, this means that within context that it
-is operathing, it's indivisible or uninterruptible.
+## Config
+Previusly to setup the project it's necesary isntall
+ - Postgres
+ - Make
 
-But en different context can be change a one example for this it's some operation in the context of
-the operaty system can be atomic but in the application not and viceversa.
+Then next commands
 
-## Memmory Access Synchronization
-It's means two concurrent proccess are attempting to access the same area of memory, and they accessing
-in memory is not atomic. That's why we use sync.Mutex Let's see the next code
+`
+make copy-config
+`
 
-var memoryAccess sync.Mutex
-var value int
+This command generate diferents files in `src/shared/infrastructure/persistence/postgres/config/database_development.yml` in which you must add your credentials postgrest
 
-go func() {
-	memoryAccess.Lock() // Block procces for change value
-	value++
-	memoryAccess.Unlock() // unBlock procces after change value
-}()
+```yml
+drive: postgres
+username: username
+password: pasword
+host: localhost
+port: 5432
+database: 'shopy_dc_dev'
+```
+Now run next command for install go dependencies
+
+`
+go mod tidy
+`
+
+`
+go install
+`
+
+Then you can create a database
+
+`
+go run ./main.go db:create
+`
+
+Finally run this command for fill database with data
+
+`
+go run ./main.go db:seed products
+`
